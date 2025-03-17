@@ -1,16 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { UserProvider } from './context/UserContext';
+import Formulario from './pages/Formulario';
+import Login from './pages/Login';
+import Perfil from './pages/Perfil';
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+    return (
+        <UserProvider>
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Formulario />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/perfil" element={<Perfil />} />
+                </Routes>
+            </Router>
+        </UserProvider>
+    );
+};
 
-  return (
-    <>
-     
-    </>
-  )
-}
+export default App;
 
-export default App
